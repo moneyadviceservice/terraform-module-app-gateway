@@ -1,7 +1,7 @@
 resource "azurerm_user_assigned_identity" "this" {
   count               = var.ssl_enable ? 1 : 0
   provider            = azurerm.hub
-  name                = "${var.project}-${var.usage_name}-${var.env}-agw"
+  name                = var.uami_name
   resource_group_name = var.vnet_rg
   location            = var.location
 }
