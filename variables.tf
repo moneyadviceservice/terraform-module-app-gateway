@@ -141,3 +141,8 @@ variable "subnet_id" {
   description = "The subnet id for the app gateway"
   type        = string
 }
+
+variable "uami_name" {
+  description = "The name of the user assigned identity"
+  type        = string
+}
