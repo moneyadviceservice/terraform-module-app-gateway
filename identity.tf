@@ -5,10 +5,10 @@ resource "azurerm_user_assigned_identity" "this" {
   location            = var.location
 }
 
-resource "azurerm_role_assignment" "identity" {
-  count        = var.ssl_enable ? 1 : 0
-  principal_id = azurerm_user_assigned_identity.this[0].principal_id
-  scope        = data.azurerm_key_vault.main.id
+# resource "azurerm_role_assignment" "identity" {
+#   count        = var.ssl_enable ? 1 : 0
+#   principal_id = azurerm_user_assigned_identity.this[0].principal_id
+#   scope        = data.azurerm_key_vault.main.id
 
-  role_definition_name = "Key Vault Secrets User"
-}
+#   role_definition_name = "Key Vault Secrets User"
+# }

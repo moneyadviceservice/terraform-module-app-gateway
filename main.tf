@@ -104,13 +104,13 @@ resource "azurerm_application_gateway" "this" {
     }
   }
 
-  dynamic "ssl_certificate" {
-    for_each = var.ssl_enable ? [1] : []
-    content {
-      name                = var.ssl_certificate_name
-      key_vault_secret_id = data.azurerm_key_vault_secret.certificate.versionless_id
-    }
-  }
+  #   dynamic "ssl_certificate" {
+  #     for_each = var.ssl_enable ? [1] : []
+  #     content {
+  #       name                = var.ssl_certificate_name
+  #       key_vault_secret_id = data.azurerm_key_vault_secret.certificate.versionless_id
+  #     }
+  #   }
 
   dynamic "http_listener" {
     for_each = !var.ssl_enable ? [for app in var.frontends : {
